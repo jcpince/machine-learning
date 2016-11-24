@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <title>Notebook</title>
 
-<script src="student_intervention_files/require.js"></script>
-<script src="student_intervention_files/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
     /*!
@@ -149,13 +149,13 @@ div#notebook {
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="student_intervention_files/custom.css">
+<link rel="stylesheet" href="custom.css">
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="student_intervention_files/MathJax.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config;executed=true">
+    <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -174,103 +174,8 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration -->
 
-<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
-.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
-.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
-.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
-</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_About.MathJax_MousePost {outline: none}
-.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-.MathJax_MenuItem {padding: 1px 2em; background: transparent}
-.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
-.MathJax_MenuActive .MathJax_MenuArrow {color: white}
-.MathJax_MenuArrow.RTL {left: .5em; right: auto}
-.MathJax_MenuCheck {position: absolute; left: .7em}
-.MathJax_MenuCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuRadioCheck {position: absolute; left: .7em}
-.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
-.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
-.MathJax_MenuDisabled {color: GrayText}
-.MathJax_MenuActive {background-color: #606872; color: white}
-.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
-.MathJax_ContextMenu:focus {outline: none}
-.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
-#MathJax_AboutClose {top: .2em; right: .2em}
-.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
-.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
-.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
-.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_MenuClose:hover span {background-color: #CCC!important}
-.MathJax_MenuClose:hover:focus {outline: none}
-</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
-</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
-.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
-</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
-#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-</style><style type="text/css">.MathJax_Preview {color: #888}
-#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
-#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
-.MathJax_Error {color: #CC0000; font-style: italic}
-</style><style type="text/css">.MJXp-script {font-size: .8em}
-.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
-.MJXp-bold {font-weight: bold}
-.MJXp-italic {font-style: italic}
-.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-largeop {font-size: 150%}
-.MJXp-largeop.MJXp-int {vertical-align: -.2em}
-.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
-.MJXp-display {display: block; text-align: center; margin: 1em 0}
-.MJXp-math span {display: inline-block}
-.MJXp-box {display: block!important; text-align: center}
-.MJXp-box:after {content: " "}
-.MJXp-rule {display: block!important; margin-top: .1em}
-.MJXp-char {display: block!important}
-.MJXp-mo {margin: 0 .15em}
-.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
-.MJXp-denom {display: inline-table!important; width: 100%}
-.MJXp-denom > * {display: table-row!important}
-.MJXp-surd {vertical-align: top}
-.MJXp-surd > * {display: block!important}
-.MJXp-script-box > *  {display: table!important; height: 50%}
-.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
-.MJXp-script-box > *:last-child > * {vertical-align: bottom}
-.MJXp-script-box > * > * > * {display: block!important}
-.MJXp-mphantom {visibility: hidden}
-.MJXp-munderover {display: inline-table!important}
-.MJXp-over {display: inline-block!important; text-align: center}
-.MJXp-over > * {display: block!important}
-.MJXp-munderover > * {display: table-row!important}
-.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
-.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
-.MJXp-mtr {display: table-row!important}
-.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
-.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-mlabeledtr {display: table-row!important}
-.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
-.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
-.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
-.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
-.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
-.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
-.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
-.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
-.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
-.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
-.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
-.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
-</style></head>
-<body><div id="MathJax_Message" style="display: none;"></div>
+</head>
+<body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -290,18 +195,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Welcome to the second project of the Machine Learning Engineer 
-Nanodegree! In this notebook, some template code has already been 
-provided for you, and it will be your job to implement the additional 
-functionality necessary to successfully complete this project. Sections 
-that begin with <strong>'Implementation'</strong> in the header indicate
- that the following block of code will require additional functionality 
-which you must provide. Instructions will be provided for each section 
-and the specifics of the implementation are marked in the code block 
-with a <code>'TODO'</code> statement. Please be sure to read the instructions carefully!</p>
-<p>In addition to implementing code, there will be questions that you 
-must answer which relate to the project and your implementation. Each 
-section where you will answer a question is preceded by a <strong>'Question X'</strong> header. Carefully read each question and provide thorough answers in the following text boxes that begin with <strong>'Answer:'</strong>. Your project submission will be evaluated based on your answers to each of the questions and the implementation you provide.</p>
+<p>Welcome to the second project of the Machine Learning Engineer Nanodegree! In this notebook, some template code has already been provided for you, and it will be your job to implement the additional functionality necessary to successfully complete this project. Sections that begin with <strong>'Implementation'</strong> in the header indicate that the following block of code will require additional functionality which you must provide. Instructions will be provided for each section and the specifics of the implementation are marked in the code block with a <code>'TODO'</code> statement. Please be sure to read the instructions carefully!</p>
+<p>In addition to implementing code, there will be questions that you must answer which relate to the project and your implementation. Each section where you will answer a question is preceded by a <strong>'Question X'</strong> header. Carefully read each question and provide thorough answers in the following text boxes that begin with <strong>'Answer:'</strong>. Your project submission will be evaluated based on your answers to each of the questions and the implementation you provide.</p>
 <blockquote>
 <p><strong>Note:</strong> Code and Markdown cells can be executed using the <strong>Shift + Enter</strong> keyboard shortcut. In addition, Markdown cells can be edited by typically double-clicking the cell to enter edit mode.</p>
 </blockquote>
@@ -314,9 +209,7 @@ section where you will answer a question is preceded by a <strong>'Question X'</
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="question-1---classification-vs.-regression">Question 1 - Classification vs. Regression</h3>
-<p><em>Your goal for this project is to identify students who might need
- early intervention before they fail to graduate. Which type of 
-supervised learning problem is this, classification or regression? Why?</em></p>
+<p><em>Your goal for this project is to identify students who might need early intervention before they fail to graduate. Which type of supervised learning problem is this, classification or regression? Why?</em></p>
 </div>
 </div>
 </div>
@@ -325,9 +218,7 @@ supervised learning problem is this, classification or regression? Why?</em></p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> It is a classification problem since the 
-output is the prediction of wether or not the student will graduate; so a
- binary output Graduated/Not Graduated (or graduated: True/False).</p>
+<p><strong>Answer: </strong> It is a classification problem since the output is the prediction of wether or not the student will graduate; so a binary output Graduated/Not Graduated (or graduated: True/False).</p>
 </div>
 </div>
 </div>
@@ -337,16 +228,13 @@ output is the prediction of wether or not the student will graduate; so a
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="exploring-the-data">Exploring the Data</h2>
-<p>Run the code cell below to load necessary Python libraries and load 
-the student data. Note that the last column from this dataset, <code>'passed'</code>,
- will be our target label (whether the student graduated or didn't 
-graduate). All other columns are features about each student.</p>
+<p>Run the code cell below to load necessary Python libraries and load the student data. Note that the last column from this dataset, <code>'passed'</code>, will be our target label (whether the student graduated or didn't graduate). All other columns are features about each student.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c1"># Import libraries</span>
@@ -356,12 +244,10 @@ graduate). All other columns are features about each student.</p>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
 
 <span class="c1"># Read student data</span>
-<span class="n">student_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"student-data.csv"</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Student data read successfully!"</span>
-<span class="k">print</span> <span class="s2">"student_data.shape:"</span><span class="p">,</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
-<span class="k">print</span> <span class="s2">"type(student_data):"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"First 5 students:"</span>
-<span class="k">print</span> <span class="n">student_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">student_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;student-data.csv&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Student data read successfully!&quot;</span>
+<span class="k">print</span> <span class="s2">&quot;student_data.shape:&quot;</span><span class="p">,</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
+<span class="k">print</span> <span class="s2">&quot;type(student_data):&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -374,32 +260,10 @@ graduate). All other columns are features about each student.</p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Student data read successfully!
+<pre>
+Student data read successfully!
 student_data.shape: (395, 31)
-type(student_data): &lt;class 'pandas.core.frame.DataFrame'&gt;
-First 5 students:
-  school sex  age address famsize Pstatus  Medu  Fedu     Mjob      Fjob  \
-0     GP   F   18       U     GT3       A     4     4  at_home   teacher   
-1     GP   F   17       U     GT3       T     1     1  at_home     other   
-2     GP   F   15       U     LE3       T     1     1  at_home     other   
-3     GP   F   15       U     GT3       T     4     2   health  services   
-4     GP   F   16       U     GT3       T     3     3    other     other   
-
-   ...   internet romantic  famrel  freetime  goout Dalc Walc health absences  \
-0  ...         no       no       4         3      4    1    1      3        6   
-1  ...        yes       no       5         3      3    1    1      3        4   
-2  ...        yes       no       4         3      2    2    3      3       10   
-3  ...        yes      yes       3         2      2    1    1      5        2   
-4  ...         no       no       4         3      2    1    2      5        4   
-
-  passed  
-0     no  
-1     no  
-2    yes  
-3    yes  
-4    yes  
-
-[5 rows x 31 columns]
+type(student_data): &lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
 
 </pre>
 </div>
@@ -415,39 +279,36 @@ First 5 students:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="implementation-data-exploration">Implementation: Data Exploration</h3>
-<p>Let's begin by investigating the dataset to determine how many 
-students we have information on, and learn about the graduation rate 
-among these students. In the code cell below, you will need to compute 
-the following: - The total number of students, <code>n_students</code>. - The total number of features for each student, <code>n_features</code>. - The number of those students who passed, <code>n_passed</code>. - The number of those students who failed, <code>n_failed</code>. - The graduation rate of the class, <code>grad_rate</code>, in percent (%).</p>
+<p>Let's begin by investigating the dataset to determine how many students we have information on, and learn about the graduation rate among these students. In the code cell below, you will need to compute the following: - The total number of students, <code>n_students</code>. - The total number of features for each student, <code>n_features</code>. - The number of those students who passed, <code>n_passed</code>. - The number of those students who failed, <code>n_failed</code>. - The graduation rate of the class, <code>grad_rate</code>, in percent (%).</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># TODO: Calculate number of features -1 for the actual output</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
-<span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s2">"passed"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"yes"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;passed&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate failing students</span>
-<span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s2">"passed"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"no"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;passed&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;no&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
 <span class="n">grad_rate</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_students</span>
 
 <span class="c1"># Print the results</span>
-<span class="k">print</span> <span class="s2">"Total number of students: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Number of features: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Number of students who passed: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Number of students who failed: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_failed</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Graduation rate of the class: {:.2f}%"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grad_rate</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Number of features: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Number of students who passed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Number of students who failed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_failed</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Graduation rate of the class: {:.2f}%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grad_rate</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -460,8 +321,9 @@ the following: - The total number of students, <code>n_students</code>. - The to
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Total number of students: 395
-Number of features: 31
+<pre>
+Total number of students: 395
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -482,10 +344,27 @@ Graduation rate of the class: 67.09%
 <h2 id="preparing-the-data">Preparing the Data</h2>
 <p>In this section, we will prepare the data for modeling, training and testing.</p>
 <h3 id="identify-feature-and-target-columns">Identify feature and target columns</h3>
-<p>It is often the case that the data you obtain contains non-numeric 
-features. This can be a problem, as most machine learning algorithms 
-expect numeric data to perform computations with.</p>
+<p>It is often the case that the data you obtain contains non-numeric features. This can be a problem, as most machine learning algorithms expect numeric data to perform computations with.</p>
 <p>Run the code cell below to separate the student data into feature and target columns to see if any features are non-numeric.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="pro-tip-data-assessment">Pro Tip: Data assessment:</h2>
+<p>When dealing with the new data set it is good practice to assess its specific characteristics and implement the cross validation technique tailored on those very characteristics, in our case there are two main elements:</p>
+<ul>
+<li>Our dataset is small.</li>
+<li>Our dataset is slightly unbalanced. (There are more passing students than on passing students)</li>
+</ul>
+<p>We could take advantage of K-fold cross validation to exploit small data sets. Even though in this case it might not be necessary, should we have to deal with heavily unbalance datasets, we could address the unbalanced nature of our data set using Stratified K-Fold and Stratified Shuffle Split Cross validation, as stratification is preserving the preserving the percentage of samples for each class. - http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedShuffleSplit.html - http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html-</p>
+As for the initial train test split you can obtain stratification by simply using stratify = y_all:
+<pre>
+:::python from sklearn.cross_validation import train_test_split X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, stratify = y_all, test_size=95, random_state=42) :::python
+<pre>
 </div>
 </div>
 </div>
@@ -497,19 +376,19 @@ expect numeric data to perform computations with.</p>
 <div class="highlight"><pre><span class="c1"># Extract feature columns</span>
 <span class="n">feature_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="c1"># Extract target column 'passed'</span>
+<span class="c1"># Extract target column &#39;passed&#39;</span>
 <span class="n">target_col</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
 
 <span class="c1"># Show the list of columns</span>
-<span class="k">print</span> <span class="s2">"Feature columns:</span><span class="se">\n</span><span class="s2">{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Target column: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_col</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Feature columns:</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Target column: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_col</span><span class="p">)</span>
 
 <span class="c1"># Separate the data into feature data and target data (X_all and y_all, respectively)</span>
 <span class="n">X_all</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span>
 <span class="n">y_all</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
 
 <span class="c1"># Show the feature information by printing the first five rows</span>
-<span class="k">print</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Feature values:"</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Feature values:&quot;</span>
 <span class="k">print</span> <span class="n">X_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -523,8 +402,9 @@ expect numeric data to perform computations with.</p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Feature columns:
-['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu', 'Mjob', 'Fjob', 'reason', 'guardian', 'traveltime', 'studytime', 'failures', 'schoolsup', 'famsup', 'paid', 'activities', 'nursery', 'higher', 'internet', 'romantic', 'famrel', 'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences']
+<pre>
+Feature columns:
+[&apos;school&apos;, &apos;sex&apos;, &apos;age&apos;, &apos;address&apos;, &apos;famsize&apos;, &apos;Pstatus&apos;, &apos;Medu&apos;, &apos;Fedu&apos;, &apos;Mjob&apos;, &apos;Fjob&apos;, &apos;reason&apos;, &apos;guardian&apos;, &apos;traveltime&apos;, &apos;studytime&apos;, &apos;failures&apos;, &apos;schoolsup&apos;, &apos;famsup&apos;, &apos;paid&apos;, &apos;activities&apos;, &apos;nursery&apos;, &apos;higher&apos;, &apos;internet&apos;, &apos;romantic&apos;, &apos;famrel&apos;, &apos;freetime&apos;, &apos;goout&apos;, &apos;Dalc&apos;, &apos;Walc&apos;, &apos;health&apos;, &apos;absences&apos;]
 
 Target column: passed
 
@@ -568,9 +448,7 @@ Feature values:
 <h3 id="preprocess-feature-columns">Preprocess Feature Columns</h3>
 <p>As you can see, there are several non-numeric columns that need to be converted! Many of them are simply <code>yes</code>/<code>no</code>, e.g. <code>internet</code>. These can be reasonably converted into <code>1</code>/<code>0</code> (binary) values.</p>
 <p>Other columns, like <code>Mjob</code> and <code>Fjob</code>, have more than two values, and are known as <em>categorical variables</em>. The recommended way to handle such a column is to create as many columns as possible values (e.g. <code>Fjob_teacher</code>, <code>Fjob_other</code>, <code>Fjob_services</code>, etc.), and assign a <code>1</code> to one of them and <code>0</code> to all others.</p>
-<p>These generated columns are sometimes called <em>dummy variables</em>, and we will use the <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.get_dummies.html?highlight=get_dummies#pandas.get_dummies"><code>pandas.get_dummies()</code></a>
- function to perform this transformation. Run the code cell below to 
-perform the preprocessing routine discussed in this section.</p>
+<p>These generated columns are sometimes called <em>dummy variables</em>, and we will use the <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.get_dummies.html?highlight=get_dummies#pandas.get_dummies"><code>pandas.get_dummies()</code></a> function to perform this transformation. Run the code cell below to perform the preprocessing routine discussed in this section.</p>
 </div>
 </div>
 </div>
@@ -580,8 +458,8 @@ perform the preprocessing routine discussed in this section.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="sd">''' Preprocesses the student data and converts non-numeric binary variables into</span>
-<span class="sd">        binary (0/1) variables. Converts categorical variables into dummy variables. '''</span>
+    <span class="sd">&#39;&#39;&#39; Preprocesses the student data and converts non-numeric binary variables into</span>
+<span class="sd">        binary (0/1) variables. Converts categorical variables into dummy variables. &#39;&#39;&#39;</span>
     
     <span class="c1"># Initialize new output DataFrame</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -591,11 +469,11 @@ perform the preprocessing routine discussed in this section.</p>
         
         <span class="c1"># If data type is non-numeric, replace all yes/no values with 1/0</span>
         <span class="k">if</span> <span class="n">col_data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
-            <span class="n">col_data</span> <span class="o">=</span> <span class="n">col_data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+            <span class="n">col_data</span> <span class="o">=</span> <span class="n">col_data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
         <span class="c1"># If data type is categorical, convert to dummy variables</span>
         <span class="k">if</span> <span class="n">col_data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
-            <span class="c1"># Example: 'school' =&gt; 'school_GP' and 'school_MS'</span>
+            <span class="c1"># Example: &#39;school&#39; =&gt; &#39;school_GP&#39; and &#39;school_MS&#39;</span>
             <span class="n">col_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">col_data</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">col</span><span class="p">)</span>  
         
         <span class="c1"># Collect the revised columns</span>
@@ -604,8 +482,8 @@ perform the preprocessing routine discussed in this section.</p>
     <span class="k">return</span> <span class="n">output</span>
 
 <span class="n">X_all</span> <span class="o">=</span> <span class="n">preprocess_features</span><span class="p">(</span><span class="n">X_all</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Processed feature columns ({} total features):</span><span class="se">\n</span><span class="s2">{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_all</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_all</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Feature values:"</span>
+<span class="k">print</span> <span class="s2">&quot;Processed feature columns ({} total features):</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_all</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_all</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Feature values:&quot;</span>
 <span class="k">print</span> <span class="n">X_all</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -619,8 +497,9 @@ perform the preprocessing routine discussed in this section.</p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Processed feature columns (48 total features):
-['school_GP', 'school_MS', 'sex_F', 'sex_M', 'age', 'address_R', 'address_U', 'famsize_GT3', 'famsize_LE3', 'Pstatus_A', 'Pstatus_T', 'Medu', 'Fedu', 'Mjob_at_home', 'Mjob_health', 'Mjob_other', 'Mjob_services', 'Mjob_teacher', 'Fjob_at_home', 'Fjob_health', 'Fjob_other', 'Fjob_services', 'Fjob_teacher', 'reason_course', 'reason_home', 'reason_other', 'reason_reputation', 'guardian_father', 'guardian_mother', 'guardian_other', 'traveltime', 'studytime', 'failures', 'schoolsup', 'famsup', 'paid', 'activities', 'nursery', 'higher', 'internet', 'romantic', 'famrel', 'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences']
+<pre>
+Processed feature columns (48 total features):
+[&apos;school_GP&apos;, &apos;school_MS&apos;, &apos;sex_F&apos;, &apos;sex_M&apos;, &apos;age&apos;, &apos;address_R&apos;, &apos;address_U&apos;, &apos;famsize_GT3&apos;, &apos;famsize_LE3&apos;, &apos;Pstatus_A&apos;, &apos;Pstatus_T&apos;, &apos;Medu&apos;, &apos;Fedu&apos;, &apos;Mjob_at_home&apos;, &apos;Mjob_health&apos;, &apos;Mjob_other&apos;, &apos;Mjob_services&apos;, &apos;Mjob_teacher&apos;, &apos;Fjob_at_home&apos;, &apos;Fjob_health&apos;, &apos;Fjob_other&apos;, &apos;Fjob_services&apos;, &apos;Fjob_teacher&apos;, &apos;reason_course&apos;, &apos;reason_home&apos;, &apos;reason_other&apos;, &apos;reason_reputation&apos;, &apos;guardian_father&apos;, &apos;guardian_mother&apos;, &apos;guardian_other&apos;, &apos;traveltime&apos;, &apos;studytime&apos;, &apos;failures&apos;, &apos;schoolsup&apos;, &apos;famsup&apos;, &apos;paid&apos;, &apos;activities&apos;, &apos;nursery&apos;, &apos;higher&apos;, &apos;internet&apos;, &apos;romantic&apos;, &apos;famrel&apos;, &apos;freetime&apos;, &apos;goout&apos;, &apos;Dalc&apos;, &apos;Walc&apos;, &apos;health&apos;, &apos;absences&apos;]
 
 Feature values:
    school_GP  school_MS  sex_F  sex_M  age  address_R  address_U  famsize_GT3  \
@@ -660,13 +539,7 @@ Feature values:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="implementation-training-and-testing-data-split">Implementation: Training and Testing Data Split</h3>
-<p>So far, we have converted all <em>categorical</em> features into 
-numeric values. For the next step, we split the data (both features and 
-corresponding labels) into training and test sets. In the following code
- cell below, you will need to implement the following: - Randomly 
-shuffle and split the data (<code>X_all</code>, <code>y_all</code>) into
- training and testing subsets. - Use 300 training points (approximately 
-75%) and 95 testing points (approximately 25%). - Set a <code>random_state</code> for the function(s) you use, if provided. - Store the results in <code>X_train</code>, <code>X_test</code>, <code>y_train</code>, and <code>y_test</code>.</p>
+<p>So far, we have converted all <em>categorical</em> features into numeric values. For the next step, we split the data (both features and corresponding labels) into training and test sets. In the following code cell below, you will need to implement the following: - Randomly shuffle and split the data (<code>X_all</code>, <code>y_all</code>) into training and testing subsets. - Use 300 training points (approximately 75%) and 95 testing points (approximately 25%). - Set a <code>random_state</code> for the function(s) you use, if provided. - Store the results in <code>X_train</code>, <code>X_test</code>, <code>y_train</code>, and <code>y_test</code>.</p>
 </div>
 </div>
 </div>
@@ -690,10 +563,10 @@ shuffle and split the data (<code>X_all</code>, <code>y_all</code>) into
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
-<span class="k">print</span> <span class="s2">"Training set has {} samples."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">print</span> <span class="s2">"Testing set has {} samples."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">print</span> <span class="s2">"Train passed rate: "</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="s2">"yes"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span> <span class="s2">"Test passed rate: "</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="n">y_test</span> <span class="o">==</span> <span class="s2">"yes"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span> <span class="s2">&quot;Testing set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span> <span class="s2">&quot;Train passed rate: &quot;</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s2">&quot;Test passed rate: &quot;</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="n">y_test</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -706,7 +579,8 @@ shuffle and split the data (<code>X_all</code>, <code>y_all</code>) into
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training set has 300 samples.
+<pre>
+Training set has 300 samples.
 Testing set has 95 samples.
 Train passed rate:  68.3333333333
 Test passed rate:  63.1578947368
@@ -725,19 +599,8 @@ Test passed rate:  63.1578947368
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="training-and-evaluating-models">Training and Evaluating Models</h2>
-<p>In this section, you will choose 3 supervised learning models that are appropriate for this problem and available in <code>scikit-learn</code>.
- You will first discuss the reasoning behind choosing these three models
- by considering what you know about the data and each model's strengths 
-and weaknesses. You will then fit the model to varying sizes of training
- data (100 data points, 200 data points, and 300 data points) and 
-measure the F<sub>1</sub> score. You will need to produce three tables 
-(one for each model) that shows the training set size, training time, 
-prediction time, F<sub>1</sub> score on the training set, and F<sub>1</sub> score on the testing set.</p>
-<p><strong>The following supervised learning models are currently available in</strong> <a href="http://scikit-learn.org/stable/supervised_learning.html"><code>scikit-learn</code></a> <strong>that you may choose from:</strong>
- - Gaussian Naive Bayes (GaussianNB) - Decision Trees - Ensemble Methods
- (Bagging, AdaBoost, Random Forest, Gradient Boosting) - K-Nearest 
-Neighbors (KNeighbors) - Stochastic Gradient Descent (SGDC) - Support 
-Vector Machines (SVM) - Logistic Regression</p>
+<p>In this section, you will choose 3 supervised learning models that are appropriate for this problem and available in <code>scikit-learn</code>. You will first discuss the reasoning behind choosing these three models by considering what you know about the data and each model's strengths and weaknesses. You will then fit the model to varying sizes of training data (100 data points, 200 data points, and 300 data points) and measure the F<sub>1</sub> score. You will need to produce three tables (one for each model) that shows the training set size, training time, prediction time, F<sub>1</sub> score on the training set, and F<sub>1</sub> score on the testing set.</p>
+<p><strong>The following supervised learning models are currently available in</strong> <a href="http://scikit-learn.org/stable/supervised_learning.html"><code>scikit-learn</code></a> <strong>that you may choose from:</strong> - Gaussian Naive Bayes (GaussianNB) - Decision Trees - Ensemble Methods (Bagging, AdaBoost, Random Forest, Gradient Boosting) - K-Nearest Neighbors (KNeighbors) - Stochastic Gradient Descent (SGDC) - Support Vector Machines (SVM) - Logistic Regression</p>
 </div>
 </div>
 </div>
@@ -747,11 +610,17 @@ Vector Machines (SVM) - Logistic Regression</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="question-2---model-application">Question 2 - Model Application</h3>
-<p><em>List three supervised learning models that are appropriate for this problem. For each model chosen</em> - Describe one real-world application in industry where the model can be applied. <em>(You may need to do a small bit of research for this — give references!)</em>
- - What are the strengths of the model; when does it perform well? - 
-What are the weaknesses of the model; when does it perform poorly? - 
-What makes this model a good candidate for the problem, given what you 
-know about the data?</p>
+<p><em>List three supervised learning models that are appropriate for this problem. For each model chosen</em> - Describe one real-world application in industry where the model can be applied. <em>(You may need to do a small bit of research for this — give references!)</em> - What are the strengths of the model; when does it perform well? - What are the weaknesses of the model; when does it perform poorly? - What makes this model a good candidate for the problem, given what you know about the data?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="pro-tip">Pro Tip:</h3>
+<p>When choosing which algorithm to use this <strong>interactive map provides a good starting point</strong>: http://scikit-learn.org/stable/tutorial/machine_learning_map/</p>
 </div>
 </div>
 </div>
@@ -761,66 +630,16 @@ know about the data?</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>The board of director wants computation cost effective model for some
- budget reason and want to increase the graduation rate from 67% to 95% 
-by helping the students the more likely to fail.</p>
-<p>So, I'd say that having a good prediction score is good but their 
-score on identifying the students who fail is also very important 
-especially here since the number of students who graduated is twice as 
-important as the number of students who failed so, a dummy predictor 
-predicting always "passed = yes" will be have a score of 77% but will 
-not help the detection (see here after for the f1_score of all yes 
-predictions)...</p>
-<p>In order to get a non computation intensive algorithm, a simple 
-algorithm should be preferred; the storage size might also be important 
-in terms of costs.</p>
-<p>I have chosen the following 3 models: - <strong>Gaussian Naive Bayes</strong>:
- This model is simple, fast and should be the most cost efficient of the
- 3; it usually gives good results in practice even when the assumption 
-of conditional independance of the features doesn't hold (here, our 
-features should be independant though). It converges quickly on small 
-datasets. On the down side, it is a bad estimator so we will not be able
- to evaluate the confidence of the predictions and it is sensible to 
-unseen samples.</p>
-<p>This algorithm is used in the industry for document classification 
-(https://web.stanford.edu/class/cs124/lec/naivebayes.pdf) or SPAM 
-filtering (see https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)</p>
-<p>I think this is a good candidate since it addresses the cost 
-question; the prediction probability is not a must have here and we have
- added a 'other' category to some of the features preventing the unseen 
-sample issue. - <strong>Random Forests</strong>: This model is very 
-interesting since, as a part of the ensemble methods, it is very good in
- terms of generalization compared to the DT which is prone to 
-overfitting. This model tends to decrease the variance which is 
-important here since a dataset is quite small (slightly under 400 
-samples) and performs well when there are a lot of features. On the bad 
-side, its bias tends to be higher than some other algoritms but the 
-variance being lower usually compensate and provite a better model. And 
-it is not efficient with huge datasets.</p>
-<p>The random forests technique is used in the medical field to classify
- deceases (see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4062420/ and
- http://mediatum.ub.tum.de/doc/1094727/document.pdf)</p>
-<p>I think is is a good candidate given that the number of features is 
-important compared to the number of samples (48 features compared to 300
- samples in the training set); The fact that there are not that many 
-samples makes at least one of the ensemble methods worth testing since 
-they share a certain robustness with respect to the overfitting. - <strong>Logistic Regression</strong>:
- Logistic regression returns a confidence score associated to the 
-prediction. Overfitting can be addressed easily with regularization and 
-it is not particularly sensitive to the dataset noise. The cons of this 
-algorithm is that the computation is expensive with large feature sets, 
-it requires large datasets to preform optimally and is sentible to the 
-multicollinearity (linear dependancy between the features).</p>
-<p>The logistic regression is used in the medical field in the diagnosis
- assistance (see http://www.ajronline.org/doi/full/10.2214/AJR.07.3345) 
-or in financial prediction systems (see 
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2171511) and many 
-more...</p>
-<p>I think this model can be interesting because it can address the 
-overfitting issue efficiently, it should perform well since the dataset 
-is not huge (nor is the number of features) and finally, the confidence 
-score might be interesting to fine tune the algorithm and favor the 
-detection of students susceptible to fail.</p>
+<p>The board of director wants computation cost effective model for some budget reason and want to increase the graduation rate from 67% to 95% by helping the students the more likely to fail.</p>
+<p>So, I'd say that having a good prediction score is good but their score on identifying the students who fail is also very important especially here since the number of students who graduated is twice as important as the number of students who failed so, a dummy predictor predicting always &quot;passed = yes&quot; will be have a score of 77% but will not help the detection (see here after for the f1_score of all yes predictions)...</p>
+<p>In order to get a non computation intensive algorithm, a simple algorithm should be preferred; the storage size might also be important in terms of costs.</p>
+<p>I have chosen the following 3 models: - <strong>Gaussian Naive Bayes</strong>: This model is simple, fast and should be the most cost efficient of the 3; it usually gives good results in practice even when the assumption of conditional independance of the features doesn't hold (here, our features should be independant though). It converges quickly on small datasets. On the down side, it is a bad estimator so we will not be able to evaluate the confidence of the predictions and it is sensible to unseen samples.</p>
+<p>This algorithm is used in the industry for document classification (https://web.stanford.edu/class/cs124/lec/naivebayes.pdf) or SPAM filtering (see https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)</p>
+<p>I think this is a good candidate since it addresses the cost question; the prediction probability is not a must have here and we have added a 'other' category to some of the features preventing the unseen sample issue. - <strong>Random Forests</strong>: This model is very interesting since, as a part of the ensemble methods, it is very good in terms of generalization compared to the DT which is prone to overfitting. This model tends to decrease the variance which is important here since a dataset is quite small (slightly under 400 samples) and performs well when there are a lot of features. On the bad side, its bias tends to be higher than some other algoritms but the variance being lower usually compensate and provite a better model. And it is not efficient with huge datasets.</p>
+<p>The random forests technique is used in the medical field to classify deceases (see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4062420/ and http://mediatum.ub.tum.de/doc/1094727/document.pdf)</p>
+<p>I think is is a good candidate given that the number of features is important compared to the number of samples (48 features compared to 300 samples in the training set); The fact that there are not that many samples makes at least one of the ensemble methods worth testing since they share a certain robustness with respect to the overfitting. - <strong>Logistic Regression</strong>: Logistic regression returns a confidence score associated to the prediction. Overfitting can be addressed easily with regularization and it is not particularly sensitive to the dataset noise. The cons of this algorithm is that the computation is expensive with large feature sets, it requires large datasets to preform optimally and is sentible to the multicollinearity (linear dependancy between the features).</p>
+<p>The logistic regression is used in the medical field in the diagnosis assistance (see http://www.ajronline.org/doi/full/10.2214/AJR.07.3345) or in financial prediction systems (see https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2171511) and many more...</p>
+<p>I think this model can be interesting because it can address the overfitting issue efficiently, it should perform well since the dataset is not huge (nor is the number of features) and finally, the confidence score might be interesting to fine tune the algorithm and favor the detection of students susceptible to fail.</p>
 </div>
 </div>
 </div>
@@ -830,9 +649,7 @@ detection of students susceptible to fail.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="setup">Setup</h3>
-<p>Run the code cell below to initialize three helper functions which 
-you can use for training and testing the three supervised learning 
-models you've chosen above. The functions are as follows: - <code>train_classifier</code> - takes as input a classifier and training data and fits the classifier to the data. - <code>predict_labels</code> - takes as input a fit classifier, features, and a target labeling and makes predictions using the F<sub>1</sub> score. - <code>train_predict</code> - takes as input a classifier, and the training and testing data, and performs <code>train_clasifier</code> and <code>predict_labels</code>. - This function will report the F<sub>1</sub> score for both the training and testing data separately.</p>
+<p>Run the code cell below to initialize three helper functions which you can use for training and testing the three supervised learning models you've chosen above. The functions are as follows: - <code>train_classifier</code> - takes as input a classifier and training data and fits the classifier to the data. - <code>predict_labels</code> - takes as input a fit classifier, features, and a target labeling and makes predictions using the F<sub>1</sub> score. - <code>train_predict</code> - takes as input a classifier, and the training and testing data, and performs <code>train_clasifier</code> and <code>predict_labels</code>. - This function will report the F<sub>1</sub> score for both the training and testing data separately.</p>
 </div>
 </div>
 </div>
@@ -842,7 +659,7 @@ models you've chosen above. The functions are as follows: - <code>train_classifi
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
-    <span class="sd">''' Fits a classifier to the training data. '''</span>
+    <span class="sd">&#39;&#39;&#39; Fits a classifier to the training data. &#39;&#39;&#39;</span>
     
     <span class="c1"># Start the clock, train the classifier, then stop the clock</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
@@ -850,11 +667,11 @@ models you've chosen above. The functions are as follows: - <code>train_classifi
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     
     <span class="c1"># Print the results</span>
-    <span class="k">print</span> <span class="s2">"Trained model in {:.4f} seconds"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s2">&quot;Trained model in {:.4f} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
 
     
 <span class="k">def</span> <span class="nf">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">do_print</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
-    <span class="sd">''' Makes predictions using a fit classifier based on F1 score. '''</span>
+    <span class="sd">&#39;&#39;&#39; Makes predictions using a fit classifier based on F1 score. &#39;&#39;&#39;</span>
     
     <span class="c1"># Start the clock, make predictions, then stop the clock</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
@@ -863,27 +680,27 @@ models you've chosen above. The functions are as follows: - <code>train_classifi
     
     <span class="c1"># Print and return results</span>
     <span class="k">if</span> <span class="n">do_print</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s2">"Made predictions in {:.4f} seconds."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">'yes'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s2">&quot;Made predictions in {:.4f} seconds.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
-    <span class="sd">''' Train and predict using a classifer based on F1 score. '''</span>
+    <span class="sd">&#39;&#39;&#39; Train and predict using a classifer based on F1 score. &#39;&#39;&#39;</span>
     
     <span class="c1"># Indicate the classifier and the training set size</span>
-    <span class="k">print</span> <span class="s2">"Training a {} using a training set size of {}. . ."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+    <span class="k">print</span> <span class="s2">&quot;Training a {} using a training set size of {}. . .&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
     
     <span class="c1"># Train the classifier</span>
     <span class="n">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
     
     <span class="c1"># Print the results of prediction for both training and testing</span>
-    <span class="k">print</span> <span class="s2">"F1 score for training set: {:.4f}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-    <span class="k">print</span> <span class="s2">"F1 score for test set: {:.4f}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">do_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+    <span class="k">print</span> <span class="s2">&quot;F1 score for training set: {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+    <span class="k">print</span> <span class="s2">&quot;F1 score for test set: {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">do_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 
 <span class="n">y_yes</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">y_yes</span> <span class="o">=</span> <span class="n">y_yes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="s2">"yes"</span><span class="p">)</span>
-<span class="n">all_yes_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_yes</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">'yes'</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">"Score of dumb predictor returning all passed: "</span><span class="p">,</span> <span class="n">all_yes_score</span>
+<span class="n">y_yes</span> <span class="o">=</span> <span class="n">y_yes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="s2">&quot;yes&quot;</span><span class="p">)</span>
+<span class="n">all_yes_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_yes</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Score of dumb predictor returning all passed: &quot;</span><span class="p">,</span> <span class="n">all_yes_score</span>
 </pre></div>
 
 </div>
@@ -896,7 +713,8 @@ models you've chosen above. The functions are as follows: - <code>train_classifi
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score of dumb predictor returning all passed:  0.774193548387
+<pre>
+Score of dumb predictor returning all passed:  0.774193548387
 
 </pre>
 </div>
@@ -912,24 +730,14 @@ models you've chosen above. The functions are as follows: - <code>train_classifi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="implementation-model-performance-metrics">Implementation: Model Performance Metrics</h3>
-<p>With the predefined functions above, you will now import the three supervised learning models of your choice and run the <code>train_predict</code>
- function for each one. Remember that you will need to train and predict
- on each classifier for three different training set sizes: 100, 200, 
-and 300. Hence, you should expect to have 9 different outputs below — 3 
-for each model using the varying training set sizes. In the following 
-code cell, you will need to implement the following: - Import the three 
-supervised learning models you've discussed in the previous section. - 
-Initialize the three models and store them in <code>clf_A</code>, <code>clf_B</code>, and <code>clf_C</code>. - Use a <code>random_state</code> for each model you use, if provided. - <strong>Note:</strong>
- Use the default settings for each model — you will tune one specific 
-model in a later section. - Create the different training set sizes to 
-be used to train each model. - <em>Do not reshuffle and resplit the data! The new training points should be drawn from <code>X_train</code> and <code>y_train</code>.</em> - Fit each model with each training set size and make predictions on the test set (9 in total).<br>
+<p>With the predefined functions above, you will now import the three supervised learning models of your choice and run the <code>train_predict</code> function for each one. Remember that you will need to train and predict on each classifier for three different training set sizes: 100, 200, and 300. Hence, you should expect to have 9 different outputs below — 3 for each model using the varying training set sizes. In the following code cell, you will need to implement the following: - Import the three supervised learning models you've discussed in the previous section. - Initialize the three models and store them in <code>clf_A</code>, <code>clf_B</code>, and <code>clf_C</code>. - Use a <code>random_state</code> for each model you use, if provided. - <strong>Note:</strong> Use the default settings for each model — you will tune one specific model in a later section. - Create the different training set sizes to be used to train each model. - <em>Do not reshuffle and resplit the data! The new training points should be drawn from <code>X_train</code> and <code>y_train</code>.</em> - Fit each model with each training set size and make predictions on the test set (9 in total).<br />
 <strong>Note:</strong> Three tables are provided after the following code cell which can be used to store your results.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -939,8 +747,8 @@ be used to train each model. - <em>Do not reshuffle and resplit the data! The ne
 
 <span class="c1"># TODO: Initialize the three models</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">'l2'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
 <span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
@@ -952,7 +760,7 @@ be used to train each model. - <em>Do not reshuffle and resplit the data! The ne
 <span class="n">X_train_300</span> <span class="o">=</span> <span class="n">X_train</span>
 <span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span>
 
-<span class="c1"># TODO: Execute the 'train_predict' function for each classifier and each training set size</span>
+<span class="c1"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
 <span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="ow">in</span> <span class="p">[[</span><span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">],</span> <span class="p">[</span><span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">],</span> <span class="p">[</span><span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">]]:</span>
         <span class="n">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -968,50 +776,51 @@ be used to train each model. - <em>Do not reshuffle and resplit the data! The ne
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0013 seconds
+<pre>
+Training a GaussianNB using a training set size of 100. . .
+Trained model in 0.0014 seconds
 F1 score for training set: 0.8467.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.8029.
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0013 seconds
+Trained model in 0.0015 seconds
 F1 score for training set: 0.8406.
-Made predictions in 0.0005 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.7244.
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0010 seconds
+Trained model in 0.0015 seconds
 F1 score for training set: 0.8038.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.7634.
 Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.1972 seconds
-F1 score for training set: 0.9481.
-Made predictions in 0.0089 seconds.
-F1 score for test set: 0.7778.
+Trained model in 0.0382 seconds
+F1 score for training set: 0.9844.
+Made predictions in 0.0018 seconds.
+F1 score for test set: 0.7153.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.1862 seconds
-F1 score for training set: 0.9169.
-Made predictions in 0.0091 seconds.
-F1 score for test set: 0.7862.
+Trained model in 0.0383 seconds
+F1 score for training set: 0.9964.
+Made predictions in 0.0018 seconds.
+F1 score for test set: 0.7857.
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.2055 seconds
-F1 score for training set: 0.9297.
-Made predictions in 0.0092 seconds.
-F1 score for test set: 0.7945.
+Trained model in 0.0301 seconds
+F1 score for training set: 0.9951.
+Made predictions in 0.0012 seconds.
+F1 score for test set: 0.8092.
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0018 seconds
+Trained model in 0.0012 seconds
 F1 score for training set: 0.8593.
-Made predictions in 0.0002 seconds.
+Made predictions in 0.0001 seconds.
 F1 score for test set: 0.7647.
 Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0030 seconds
+Trained model in 0.0021 seconds
 F1 score for training set: 0.8562.
 Made predictions in 0.0002 seconds.
 F1 score for test set: 0.7914.
 Training a LogisticRegression using a training set size of 300. . .
-Trained model in 0.0044 seconds
+Trained model in 0.0055 seconds
 F1 score for training set: 0.8468.
-Made predictions in 0.0002 seconds.
+Made predictions in 0.0003 seconds.
 F1 score for test set: 0.8060.
 
 </pre>
@@ -1040,11 +849,11 @@ F1 score for test set: 0.8060.
 <p>** Classifer 1 - GaussianNB **</p>
 <table style="width:100%;">
 <colgroup>
-<col width="18%">
-<col width="24%">
-<col width="23%">
-<col width="17%">
-<col width="16%">
+<col width="18%" />
+<col width="24%" />
+<col width="23%" />
+<col width="17%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1060,33 +869,33 @@ F1 score for test set: 0.8060.
 <td align="center">100</td>
 <td align="center">1.4ms</td>
 <td align="center">0.3ms</td>
-<td align="center">84.67%</td>
-<td align="center">80.29%</td>
+<td align="center">0.8467</td>
+<td align="center">0.8029</td>
 </tr>
 <tr class="even">
 <td align="center">200</td>
 <td align="center">0.9ms</td>
 <td align="center">0.3ms</td>
-<td align="center">84%</td>
-<td align="center">72.44%</td>
+<td align="center">0.84</td>
+<td align="center">0.7244</td>
 </tr>
 <tr class="odd">
 <td align="center">300</td>
 <td align="center">1.5ms</td>
 <td align="center">0.3ms</td>
-<td align="center">80.38%</td>
-<td align="center">76.34%</td>
+<td align="center">0.8038</td>
+<td align="center">0.7634</td>
 </tr>
 </tbody>
 </table>
 <p>** Classifer 2 - RandomForestClassifier **</p>
 <table style="width:100%;">
 <colgroup>
-<col width="18%">
-<col width="24%">
-<col width="23%">
-<col width="17%">
-<col width="16%">
+<col width="18%" />
+<col width="24%" />
+<col width="23%" />
+<col width="17%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1102,33 +911,33 @@ F1 score for test set: 0.8060.
 <td align="center">100</td>
 <td align="center">211ms</td>
 <td align="center">7.8ms</td>
-<td align="center">94.81%</td>
-<td align="center">77.78%</td>
+<td align="center">0.9844</td>
+<td align="center">0.7153</td>
 </tr>
 <tr class="even">
 <td align="center">200</td>
 <td align="center">188ms</td>
 <td align="center">9.3ms</td>
-<td align="center">91.69%</td>
-<td align="center">78.62%</td>
+<td align="center">0.9964</td>
+<td align="center">0.7857</td>
 </tr>
 <tr class="odd">
 <td align="center">300</td>
 <td align="center">192ms</td>
 <td align="center">9.7ms</td>
-<td align="center">92.97%</td>
-<td align="center">79.45%</td>
+<td align="center">0.9951</td>
+<td align="center">0.8092</td>
 </tr>
 </tbody>
 </table>
 <p>** Classifer 3 - LogisticRegression **</p>
 <table style="width:100%;">
 <colgroup>
-<col width="18%">
-<col width="24%">
-<col width="23%">
-<col width="17%">
-<col width="16%">
+<col width="18%" />
+<col width="24%" />
+<col width="23%" />
+<col width="17%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1144,22 +953,22 @@ F1 score for test set: 0.8060.
 <td align="center">100</td>
 <td align="center">1.4ms</td>
 <td align="center">0.1ms</td>
-<td align="center">85.93%</td>
-<td align="center">76.47%</td>
+<td align="center">0.8593</td>
+<td align="center">0.7647</td>
 </tr>
 <tr class="even">
 <td align="center">200</td>
 <td align="center">2ms</td>
 <td align="center">0.3ms</td>
-<td align="center">85.62%</td>
-<td align="center">79.14%</td>
+<td align="center">0.8562</td>
+<td align="center">0.7914</td>
 </tr>
 <tr class="odd">
 <td align="center">300</td>
 <td align="center">4.2ms</td>
 <td align="center">0.2ms</td>
-<td align="center">84.68%</td>
-<td align="center">80.60%</td>
+<td align="center">0.8468</td>
+<td align="center">0.8060</td>
 </tr>
 </tbody>
 </table>
@@ -1182,16 +991,13 @@ F1 score for test set: 0.8060.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="question-3---choosing-the-best-model">Question 3 - Choosing the Best Model</h3>
-<p><em>Based on the experiments you performed earlier, in one to two 
-paragraphs, explain to the board of supervisors what single model you 
-chose as the best model. Which model is generally the most appropriate 
-based on the available data, limited resources, cost, and performance?</em></p>
+<p><em>Based on the experiments you performed earlier, in one to two paragraphs, explain to the board of supervisors what single model you chose as the best model. Which model is generally the most appropriate based on the available data, limited resources, cost, and performance?</em></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
@@ -1201,18 +1007,18 @@ based on the available data, limited resources, cost, and performance?</em></p>
     <span class="n">count_no</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">count_right_no</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">probs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'no'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
             <span class="n">count_no</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">preds</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
                 <span class="n">count_right_no</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">preds</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="c1">#   print("%3s     OK: prob: %0.6f vs %0.6f" % (y_test.iloc[idx], prob[0], prob[1]))</span>
+        <span class="c1">#   print(&quot;%3s     OK: prob: %0.6f vs %0.6f&quot; % (y_test.iloc[idx], prob[0], prob[1]))</span>
         <span class="c1">#else:</span>
-        <span class="c1">#   print("%3s  WRONG: prob: %0.6f vs %0.6f" % (y_test.iloc[idx], prob[0], prob[1]))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> got it right </span><span class="si">%d</span><span class="s2"> times over </span><span class="si">%d</span><span class="s2"> data =&gt; </span><span class="si">%0.3f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="c1">#   print(&quot;%3s  WRONG: prob: %0.6f vs %0.6f&quot; % (y_test.iloc[idx], prob[0], prob[1]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> got it right </span><span class="si">%d</span><span class="s2"> times over </span><span class="si">%d</span><span class="s2"> data =&gt; </span><span class="si">%0.3f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
         <span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">100.0</span><span class="o">*</span><span class="n">count</span><span class="o">/</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> got the failing students right </span><span class="si">%d</span><span class="s2"> times over </span><span class="si">%d</span><span class="s2"> data =&gt; </span><span class="si">%0.3f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> got the failing students right </span><span class="si">%d</span><span class="s2"> times over </span><span class="si">%d</span><span class="s2"> data =&gt; </span><span class="si">%0.3f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
         <span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">count_right_no</span><span class="p">,</span> <span class="n">count_no</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="n">count_right_no</span><span class="o">/</span><span class="n">count_no</span><span class="p">))</span>
 </pre></div>
 
@@ -1226,10 +1032,11 @@ based on the available data, limited resources, cost, and performance?</em></p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>GaussianNB got it right 64 times over 95 data =&gt; 67.368%
+<pre>
+GaussianNB got it right 64 times over 95 data =&gt; 67.368%
 GaussianNB got the failing students right 14 times over 35 data =&gt; 40.000%
-RandomForestClassifier got it right 65 times over 95 data =&gt; 68.421%
-RandomForestClassifier got the failing students right 7 times over 35 data =&gt; 20.000%
+RandomForestClassifier got it right 70 times over 95 data =&gt; 73.684%
+RandomForestClassifier got the failing students right 17 times over 35 data =&gt; 48.571%
 LogisticRegression got it right 69 times over 95 data =&gt; 72.632%
 LogisticRegression got the failing students right 15 times over 35 data =&gt; 42.857%
 
@@ -1247,16 +1054,11 @@ LogisticRegression got the failing students right 15 times over 35 data =&gt; 42
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Based on the data provided, the best model we trained is the Logistic Regression model.</p>
-<p>This model has several advantages such as: - It returns a probability
- associated with the prediction - It is robust to data noise (wrong 
-information used to feed the algorithm) - It is widely used in the whole
- industry - It is the model which captured best the students who failed 
-in the dataset</p>
-<p>Moreover, in our case of identifying the students requiring some 
-assistance to make sure they will graduate, the probability associated 
-with the prediction can help enlarging the set of students monitored by 
-the school even if no steps are taken immediately in their direction.</p>
+<p>We have three criterias to take into account here: 1. The time spent by the algorithm for training 2. The time spent by the algorithm for the prediction 3. The accuracy of the predictions</p>
+<p>The table clearly shows that: - The GaussianNB model is fast in terms of both learning and prediction but its best f1 score on the test set is 0.76 so, 0.5 below the 2 other algorithms. - The Random Forests model is really slow compared to the other two in terms of learning and prediction (200ms in learning versus 2 to 4ms for the other 2 models); its f1_score is the best of the 3 models by a very slight margin when compared to the last model. - The last model is the Logistic Regression shows a very good compromise running time/accuracy; It's running times for both training and prediction is really close to the fatest GaussianNB (in the order of 2ms) and its prediction time is even slightly better (roughly 0.2ms). Its accurasy is also very close to the best 0.806 (versus 0.809 for the RF model).</p>
+<p>Based on the measures, the algorithm satisfying best our criterias is the Logistic Regression model (close to best training time, best prediction time and equivalent to best prediction accuracy).</p>
+<p>This model has several advantages such as: - It returns a probability associated with the prediction - It is robust to data noise (wrong information used to feed the algorithm) - It is widely used in the whole industry</p>
+<p>Moreover, in our case of identifying the students requiring some assistance to make sure they will graduate, the probability associated with the prediction can help enlarging the set of students monitored by the school even if no steps are taken immediately in their direction.</p>
 </div>
 </div>
 </div>
@@ -1266,12 +1068,7 @@ the school even if no steps are taken immediately in their direction.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="question-4---model-in-laymans-terms">Question 4 - Model in Layman's Terms</h3>
-<p><em>In one to two paragraphs, explain to the board of directors in 
-layman's terms how the final model chosen is supposed to work. Be sure 
-that you are describing the major qualities of the model, such as how 
-the model is trained and how the model makes a prediction. Avoid using 
-advanced mathematical or technical jargon, such as describing equations 
-or discussing the algorithm implementation.</em></p>
+<p><em>In one to two paragraphs, explain to the board of directors in layman's terms how the final model chosen is supposed to work. Be sure that you are describing the major qualities of the model, such as how the model is trained and how the model makes a prediction. Avoid using advanced mathematical or technical jargon, such as describing equations or discussing the algorithm implementation.</em></p>
 </div>
 </div>
 </div>
@@ -1281,12 +1078,12 @@ or discussing the algorithm implementation.</em></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>The model chosen has learned all the data provided and it has 
-extracted the visible and hidden relationships between all the 
-environmental factors captured in the data provided and the success or 
-failure to the final exam.</p>
-<p>Those relationships allow the model to predict the success or failure
- of students to come when they meet similar or close conditions.</p>
+<p>The model chosen is the logistic Regression algorithm.</p>
+<p>The logistic regression is characterized by a set of weights associated to each of the input variables. Those inputs are the input variable like sex, age, parents profession, etc...</p>
+<p>The input features which are not numerical are transformed into numercial values; for example, the parents' job is a text variable whose value can be any in a list composed of (at_home, teacher, services... and other), this list is then transformed in as many input variables and get a 1 value when the parent's job correspond to the new input variable and 0 for the others input corresponding to this list.</p>
+<p>With all the variables now numerical, the model is trained or learned by multiplying each input variable by its associated weight and comparing the result to the actual value (exam passed or not); depending on the difference and the input variables, the weights are adjusted to better fit the actual value.</p>
+<p>The difference between the prediction and the actual value is used as a cost function. The objective of the training is to minimize this cost function; so the error between the algorithm's output and the actual result (exam passed or not).</p>
+<p>Once the training is done, we have a model than can be applied to new data simply by first formatting the data to 'all numerical' then by multiplying by the weights obtained during the training; this is our prediction!!</p>
 </div>
 </div>
 </div>
@@ -1296,10 +1093,7 @@ failure to the final exam.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="implementation-model-tuning">Implementation: Model Tuning</h3>
-<p>Fine tune the chosen model. Use grid search (<code>GridSearchCV</code>)
- with at least one important parameter tuned with at least 3 different 
-values. You will need to use the entire training set for this. In the 
-code cell below, you will need to implement the following: - Import <a href="http://scikit-learn.org/0.17/modules/generated/sklearn.grid_search.GridSearchCV.html"><code>sklearn.grid_search.GridSearchCV</code></a> and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html"><code>sklearn.metrics.make_scorer</code></a>. - Create a dictionary of parameters you wish to tune for the chosen model. - Example: <code>parameters = {'parameter' : [list of values]}</code>. - Initialize the classifier you've chosen and store it in <code>clf</code>. - Create the F<sub>1</sub> scoring function using <code>make_scorer</code> and store it in <code>f1_scorer</code>. - Set the <code>pos_label</code> parameter to the correct value! - Perform grid search on the classifier <code>clf</code> using <code>f1_scorer</code> as the scoring method, and store it in <code>grid_obj</code>. - Fit the grid search object to the training data (<code>X_train</code>, <code>y_train</code>), and store it in <code>grid_obj</code>.</p>
+<p>Fine tune the chosen model. Use grid search (<code>GridSearchCV</code>) with at least one important parameter tuned with at least 3 different values. You will need to use the entire training set for this. In the code cell below, you will need to implement the following: - Import <a href="http://scikit-learn.org/0.17/modules/generated/sklearn.grid_search.GridSearchCV.html"><code>sklearn.grid_search.GridSearchCV</code></a> and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html"><code>sklearn.metrics.make_scorer</code></a>. - Create a dictionary of parameters you wish to tune for the chosen model. - Example: <code>parameters = {'parameter' : [list of values]}</code>. - Initialize the classifier you've chosen and store it in <code>clf</code>. - Create the F<sub>1</sub> scoring function using <code>make_scorer</code> and store it in <code>f1_scorer</code>. - Set the <code>pos_label</code> parameter to the correct value! - Perform grid search on the classifier <code>clf</code> using <code>f1_scorer</code> as the scoring method, and store it in <code>grid_obj</code>. - Fit the grid search object to the training data (<code>X_train</code>, <code>y_train</code>), and store it in <code>grid_obj</code>.</p>
 </div>
 </div>
 </div>
@@ -1308,19 +1102,19 @@ code cell below, you will need to implement the following: - Import <a href="htt
 <div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c1"># TODO: Import 'GridSearchCV' and 'make_scorer'</span>
+<div class="highlight"><pre><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 
 <span class="c1"># TODO: Create the parameters list you wish to tune</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'C'</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">'fit_intercept'</span> <span class="p">:</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> <span class="s1">'tol'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">],</span>
-        <span class="s1">'class_weight'</span> <span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s1">'balanced'</span><span class="p">],</span> <span class="s1">'solver'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'newton-cg'</span><span class="p">,</span> <span class="s1">'lbfgs'</span><span class="p">,</span> <span class="s1">'liblinear'</span><span class="p">,</span> <span class="s1">'sag'</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;fit_intercept&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> <span class="s1">&#39;tol&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">],</span>
+        <span class="s1">&#39;class_weight&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;balanced&#39;</span><span class="p">],</span> <span class="s1">&#39;solver&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">,</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">]}</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">'l2'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 
-<span class="c1"># TODO: Make an f1 scoring function using 'make_scorer' </span>
-<span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s2">"yes"</span><span class="p">)</span>
+<span class="c1"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
+<span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
 
 <span class="n">cv_sets</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_iter</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span><span class="p">)</span>
 
@@ -1332,12 +1126,12 @@ code cell below, you will need to implement the following: - Import <a href="htt
 
 <span class="c1"># Get the estimator</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
-<span class="n">clf_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">'l2'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">clf_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Report the final F1 score for training and testing after parameter tuning</span>
-<span class="k">print</span> <span class="s2">"Tuned model has a training F1 score of {:.4f}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">"Tuned model has a testing F1 score of {:.4f}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">"Tuned model has a testing F1 score of {:.4f}."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf_lr</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf_lr</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -1350,7 +1144,8 @@ code cell below, you will need to implement the following: - Import <a href="htt
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Tuned model has a training F1 score of 0.8337.
+<pre>
+Tuned model has a training F1 score of 0.8337.
 Tuned model has a testing F1 score of 0.7801.
 Tuned model has a testing F1 score of 0.8060.
 
@@ -1380,11 +1175,7 @@ Tuned model has a testing F1 score of 0.8060.
 <p><strong>Answer: </strong></p>
 <p>The final score is 84.5% on the training set and 79.7% on the test set.</p>
 <p>It was 84.7% on the training set and 80.6% on the test set with the default parameters (C=1 and penalty=l2).</p>
-<p>The way I interpret this is that the GridSearch splits the dataset it
- is given into a cross validation set (see test_size parameter) which 
-reduces the number of samples it processes for the training; this seems 
-like double validation and decrease the overall performance with such 
-small datasets.</p>
+<p>The way I interpret this is that the GridSearch splits the dataset it is given into a cross validation set (see test_size parameter) which reduces the number of samples it processes for the training; this seems like double validation and decrease the overall performance with such small datasets.</p>
 </div>
 </div>
 </div>
@@ -1394,10 +1185,7 @@ small datasets.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote>
-<p><strong>Note</strong>: Once you have completed all of the code 
-implementations and successfully answered each question above, you may 
-finalize your work by exporting the iPython Notebook as an HTML 
-document. You can do this by using the menu above and navigating to<br>
+<p><strong>Note</strong>: Once you have completed all of the code implementations and successfully answered each question above, you may finalize your work by exporting the iPython Notebook as an HTML document. You can do this by using the menu above and navigating to<br />
 <strong>File -&gt; Download as -&gt; HTML (.html)</strong>. Include the finished document along with this notebook as your submission.</p>
 </blockquote>
 </div>
@@ -1405,6 +1193,5 @@ document. You can do this by using the menu above and navigating to<br>
 </div>
     </div>
   </div>
-
-
-</body></html>
+</body>
+</html>
