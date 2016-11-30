@@ -130,6 +130,7 @@ class Environment(object):
         deadline = distance * 5 # 5 time steps per intersection away
         if(self.verbose == True): # Debugging
             print "Environment.reset(): Trial set up with start = {}, destination = {}, deadline = {}".format(start, destination, deadline)
+        #print self.intersections
 
         # Create a map of all possible initial positions
         positions = dict()

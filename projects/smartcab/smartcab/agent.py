@@ -60,7 +60,14 @@ class LearningAgent(Agent):
         #   If it is not, create a dictionary in the Q-table for the current 'state'
         #   For each action, set the Q-value for the state-action pair to 0
         
-        state = None
+        state = {
+            'waypoint': waypoint,
+            'light': inputs['light'],
+            'left': 'forward' if inputs['left'] == 'forward' else None,
+            'right': 'forward' if inputs['right'] == 'forward' else None,
+            'oncoming': inputs['oncoming'],
+            'deadline': deadline
+        }
 
         return state
 
@@ -99,7 +106,12 @@ class LearningAgent(Agent):
         # Set the agent state and default action
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
-        action = None
+        if self.learning != True:
+            action = random.choice(self.valid_actions)
+        
+        print("self.learning: ", self.learning)
+        print("self.valid_actions: ", self.valid_actions)
+        print("action: ", action)
 
         ########### 
         ## TO DO ##
@@ -163,7 +175,7 @@ def run():
     # Follow the driving agent
     # Flags:
     #   enforce_deadline - set to True to enforce a deadline metric
-    env.set_primary_agent(agent)
+    env.set_primary_agent(agent)#, enforce_deadline=True)
 
     ##############
     # Create the simulation
@@ -172,14 +184,14 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env)
+    sim = Simulator(env)#, update_delay=0.1, log_metrics=True, display=False)
     
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run()
+    sim.run()#n_test=10)
 
 
 if __name__ == '__main__':
