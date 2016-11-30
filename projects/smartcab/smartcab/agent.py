@@ -59,15 +59,14 @@ class LearningAgent(Agent):
         # When learning, check if the state is in the Q-table
         #   If it is not, create a dictionary in the Q-table for the current 'state'
         #   For each action, set the Q-value for the state-action pair to 0
-        
-        state = {
+        state = tuple({
             'waypoint': waypoint,
             'light': inputs['light'],
             'left': 'forward' if inputs['left'] == 'forward' else None,
             'right': 'forward' if inputs['right'] == 'forward' else None,
             'oncoming': inputs['oncoming'],
             'deadline': deadline
-        }
+        }.items())
 
         return state
 
@@ -80,8 +79,13 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Calculate the maximum Q-value of all actions for a given state
-
         maxQ = None
+        if self.learn and state in self.Q.keys():
+            max_value = 0.0
+            for action, value in self.Q[state]:
+                if value > max_value:
+                    max_value = value
+                    maxQ = action
 
         return maxQ 
 
@@ -95,6 +99,8 @@ class LearningAgent(Agent):
         # When learning, check if the 'state' is not in the Q-table
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
+        if self.learn and state not in self.Q.keys():
+            self.Q[state] = {'forward': 0.0, 'left': 0.0, 'right':0.0, None:0.0}
 
         return
 
