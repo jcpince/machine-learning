@@ -42,12 +42,13 @@ class LearningAgent(Agent):
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         self.step = 0
+        self.nsteps = self.env.get_deadline(self)
         if testing:
             self.epsilon = 0.0
             self.alpha = 0.0
         else:
             self.epsilon -= self.epsilon_decay
-            self.alpha = self.epsilon * self.alpha
+            #self.alpha = 0.98 * self.alpha
         return None
 
     def build_state(self):
@@ -72,8 +73,7 @@ class LearningAgent(Agent):
             'light': inputs['light'],
             'left': 'forward' if inputs['left'] == 'forward' else None,
             'right': 'forward' if inputs['right'] == 'forward' else None,
-            'oncoming': inputs['oncoming'],
-            'deadline': deadline
+            'oncoming': inputs['oncoming']
         }.items())
 
         return state
@@ -92,7 +92,7 @@ class LearningAgent(Agent):
             max_value = 0.0
             for action in self.Q[state].keys():
                 value = self.Q[state][action]
-                print("Action found for state: %s - value: %d" % (str(action), value))
+                print("Action found for state: %s - value: %f" % (str(action), value))
                 if value > max_value:
                     max_value = value
                     maxQ = action
@@ -109,7 +109,7 @@ class LearningAgent(Agent):
         # When learning, check if the 'state' is not in the Q-table
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
-        if self.learn and state not in self.Q.keys():
+        if self.learning and state not in self.Q.keys():
             self.Q[state] = {'forward': 0.0, 'left': 0.0, 'right':0.0, None:0.0}
 
         return
@@ -131,17 +131,19 @@ class LearningAgent(Agent):
         self.step += 1
         #   Otherwise, choose an action with the highest Q-value for the current state
         if self.learning == True:
-            if self.step < self.epsilon * 100: #self.deadline:
+            if self.step < self.epsilon * self.nsteps:
+                print("### Explore (step %d, nsteps %d, epsilon %f, epsilon*nsteps %f)" % (self.step, self.nsteps, self.epsilon, self.epsilon * self.nsteps))
                 action = random.choice(self.valid_actions)
             else:
+                print("@@@ Exploit (step %d, nsteps %d, epsilon %f, epsilon*nsteps %f)" % (self.step, self.nsteps, self.epsilon, self.epsilon * self.nsteps))
                 action = self.get_maxQ(state)
-                
         else:
             action = self.get_maxQ(state)
         
-        print("self.learning: ", self.learning)
-        print("self.valid_actions: ", self.valid_actions)
-        print("action: ", action)
+        print("self.learning: %s" % str(self.learning))
+        print("Q-learning database size: %d" % len(self.Q))
+        print("self.valid_actions: %s" % str(self.valid_actions))
+        print("action: %s" % str(action))
         return action
 
 
@@ -156,11 +158,12 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         
-        if not self.learn:
+        if self.learning == False:
             return
             
         if state in self.Q.keys():
             self.Q[state][action] += self.alpha * reward
+            #print("Action %s got updated to %f\n" % (action, self.Q[state][action]))
 
         return
 
@@ -197,7 +200,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent)#, learning=True)
+    agent = env.create_agent(LearningAgent, learning=True)#, epsilon=1.0, epsilon_decay = 0.01)
     
     ##############
     # Follow the driving agent
@@ -212,7 +215,7 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.1, log_metrics=True, display=False)
+    sim = Simulator(env, update_delay=0.0, log_metrics=True, display=False)
     
     ##############
     # Run the simulator
