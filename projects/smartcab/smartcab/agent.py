@@ -4,6 +4,8 @@ from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
 
+global_step = 0
+
 class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
@@ -47,7 +49,11 @@ class LearningAgent(Agent):
             self.epsilon = 0.0
             self.alpha = 0.0
         else:
-            self.epsilon -= self.epsilon_decay
+            global global_step
+            
+            #self.epsilon -= self.epsilon_decay
+            self.epsilon = math.cos(global_step * self.epsilon_decay)
+            
             #self.alpha = 0.98 * self.alpha
         return None
 
@@ -128,6 +134,8 @@ class LearningAgent(Agent):
         # When not learning, choose a random action
         # When learning, choose a random action with 'epsilon' probability
         self.step += 1
+        global global_step
+        global_step += 1
         #   Otherwise, choose an action with the highest Q-value for the current state
         if self.learning == True:
             if self.step < self.epsilon * self.nsteps:
@@ -199,7 +207,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True)#, epsilon=1.0, epsilon_decay = 0.01)
+    agent = env.create_agent(LearningAgent, learning=True, epsilon=1.0, alpha=1, epsilon_decay = 0.0002)
     
     ##############
     # Follow the driving agent
@@ -214,14 +222,14 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.01, log_metrics=True, display=False)
+    sim = Simulator(env, update_delay=0.00001, log_metrics=True, display=False, optimized=True)
     
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10)
+    sim.run(n_test=10, tolerance=0.05)
 
 
 if __name__ == '__main__':
