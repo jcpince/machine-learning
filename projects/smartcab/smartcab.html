@@ -4636,6 +4636,10 @@ roj+P62BB8zlg23FAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>With respect to the environment, I think that there is no garantie that future rewards will not transform into negative ones when the time comes to this future and the vehicles on the grid will have changed positions. With respect to the smartcab, it has no idea where the goal is in its state; only the next waypoint. So using future rewards that could lead to different direction than no action or the next waypoint's direction would lead to same or more penalties.</p>
+<p>In the final (optional) question, the main ideas to keep in mind are:</p>
+<pre><code>The smartcab has an egocentric view of the world, meaning it doesn&#39;t &quot;see&quot; beyond the current intersection it&#39;s in. So it cannot &quot;plan ahead&quot; to try and find a route to the destination - it must rely on the instructions passed by the planner to get there.
+Since both the smartcab&#39;s initial position and the destination change from trial to trial, the smartcab cannot learn a route by rote.
+There is no extra reward for reaching the destination, which means there is no incentive to do anything other than solve the local problem of obeying traffic rules and following the planner&#39;s instructions.</code></pre>
 </div>
 </div>
 </div>
