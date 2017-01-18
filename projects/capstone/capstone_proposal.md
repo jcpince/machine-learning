@@ -1,6 +1,6 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal for AMES house pricing Kaggle competition
-Jean-Christophe (JC) PINCE
+Jean-Christophe (JC) PINCE  
 January 18th, 2017
 
 ## Proposal
@@ -29,21 +29,26 @@ The 79 features are both numerical and categorical and mainly describe with many
 ### Solution Statement
 After a deep look into the Kaggle solutions for regression problems, I chose to use a stacking machine learning solution. Largely inspired by Faron's description on the forum (https://www.kaggle.com/getting-started/18153) and the excellent Kaggle ensembling guide (http://mlwave.com/kaggle-ensembling-guide/).
 
+The idea is to split our global model in two or more layers. Each layer should extract different information on the dataset and generate a prediction that will be used as an input to the second layer. The second layer can then make its predictions using the first layer output but also optionally using a subset of the input features to make new predictions. Those predictions can then be used by a next layer until the final layer. Finally, the predictions of the final layer can be averaged or combined to generate the final prediction.
+
+Stacking gives the best results when combining models extracting different information from the data. I plan to use different models (tree based and linear models; namely XGBRegressor, RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, LinearRegression, Lasso and Ridge) in the first layer with different combinations of the most important features so the predictions should not be identical and the layer 2 will have some variance to deal with. I will also inject one or several subsets of the dataset in the second layer to help it choosing amongst the different predictions.
+
 As imposed by the competition, the difference between the price predicted and the real price the house has been sold is evaluated using the Root-Mean-Squared-Error (https://en.wikipedia.org/wiki/Root-mean-square_deviation) between the logarithm of the predicted value and the logarithm of the observed sales price. (Taking logs means that errors in predicting expensive houses and cheap houses will affect the result equally).
 
 
 ### Benchmark Model
-As a benchmark, I'll use the competition leaderboard which will allow me to compare my solution to the thousands of solutions adopted by the community. Given the number of participants to the competition (roughly 3500) and the density of the scores, I will not take the ranking as a benchmark but the proximity to the best solutions.
+In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
 
+As a benchmark, I'll use the competition leaderboard which will allow me to compare my solution to the thousands of solutions adopted by the community. Given the number of participants to the competition (roughly 3500) and the density of the scores, I will not take the ranking as a benchmark but the proximity to the best solutions.
 As described before, the metric used to measure the result is the RMSE or RMSD on the logs of the price and the estimation; taking the logs allowing to not get a huge penalty on the most expensive houses prediction error.
 
 ### Evaluation Metrics
 The root-mean-square deviation (RMSD) or root-mean-square error (RMSE) is a frequently used measure of the differences between values (sample and population values) predicted by a model or an estimator and the values actually observed. The RMSD represents the sample standard deviation of the differences between predicted values and observed values. These individual differences are called residuals when the calculations are performed over the data sample that was used for estimation, and are called prediction errors when computed out-of-sample. The RMSD serves to aggregate the magnitudes of the errors in predictions for various times into a single measure of predictive power. RMSD is a good measure of accuracy, but only to compare forecasting errors of different models for a particular variable and not between variables, as it is scale-dependent (Source Wikipedia).
 
 I'll use the following formula:
-The RMSD of predicted values for times t of a regression's dependent variable y is computed for n different predictions as the square root of the mean of the squares of the deviations: 
+The RMSD of predicted values for times t of a regression's dependent variable y is computed for n different predictions as the square root of the mean of the squares of the deviations:
 \begin{equation}
-RMSD = \sqrt\frac{\sum(log(pred) - log(y))\square}{n}
+RMSD = \sqrt\frac{\sum(log(pred) - log(y))²}{n}
 \end{equation}
 
 ### Project Design
