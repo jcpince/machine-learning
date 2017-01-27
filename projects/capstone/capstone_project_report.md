@@ -29,6 +29,9 @@ The RMSD of predicted values for times t of a regression’s dependent variable 
 RMSD = \sqrt\frac{\sum(log(pred) - log(y))²}{n}
 \end{equation}
 
+In our case, in addition to the fact that Kaggle chose it as the metric for the ranking, it is particularly well suited to our problem where our estimations range from 40000$ to 755000$. The error on a house in the top of the range will likelly be more important in terms of dollars than an error on the bottom of this range and hence, the mean would be much more affected by those high price houses. Using log makes the sale price range from 10.6 to 13.5 only and an error of 10% is 0.10 and 0.11 respectively on the low and high prices.
+This makes this metric a very good one for the problem at hand.
+
 ## **II. Analysis**
 ### **Data Exploration**
 The data provided to support the competition is in the form of two CSV files; a first file containing 1460 samples with sale prices for training and a second file with 1459 records with no sale price for evaluation and ranking by Kaggle.
@@ -174,6 +177,42 @@ The final setup looks like the following:
 
 Note: I didn't represent the input flavors for the sake of clarity...
 
+For each model, here are the parameters I used:
+
+- **GradientBoostingRegressor**:
+	 - *n_estimators*: number of estimators or regression trees used,
+	 - *max_features*: maximal numer of features that any tree can use (I used it to limit overfitting),
+     - *max_depth*: maximal depth that any base learner can reach (also a limit to overfitting),
+     - *learning_rate*: shrinks the contribution of each tree by learning_rate (balance between overfit and bias),
+     - *subsample*: fraction of samples to be used for fitting the individual base learners. If smaller than 1.0 this results in Stochastic Gradient Boosting. subsample interacts with the parameter n_estimators. Choosing subsample below 1.0 leads to a reduction of variance and an increase in bias.
+
+- **XGBRegressor**:
+    - n_estimators: same as above
+    - max_depth: same as above
+    - learning_rate: same as above
+    - subsample: same as above
+    - min_child_weight: See [here](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/) - Used to control over-fitting. Higher values prevent a model from learning relations which might be highly specific to the particular sample selected for a tree
+
+- **ExtraTreesRegressor:**
+    - max_depth: same as above
+    - n_estimators: same as above
+    - max_features: same as above
+    - min_samples_split: minimum number of samples required to split an internal node (I used it to limit overfitting)
+
+- **RandomForestRegressor:**
+       - max_depth: same as above
+       - n_estimators: same as above
+       - max_features: same as above
+ 
+- **Ridge:**
+    - alpha: Regularization strength improves the conditioning of the problem and reduces the variance of the estimates. Larger values specify stronger regularization. (I have favored alpha over pure performance by tuning the input dataset used)
+
+- **Lasso:**
+    - alpha: Constant that multiplies the L1 term. (I have used this parameter as we use the learning rate with other algorithms)
+    - max_iter: maximum number of iterations (I had to tune this parameter to allow the algorithm to converge despite the low alpha)
+
+As you can see above, most of my tuning has been to limit the overfitting than can be reached very easily with those algorithms still keeping some performance on the prediction. Overfitting has been my major concern all along this project; I have had results below 0.06 with overfitting leading to leaderboard results above 0.14...
+
 ### **Benchmark**
 As a benchmark, I’ll use the competition leaderboard which will allow me to compare my solution to the thousands of solutions adopted by the community. Given the number of participants to the competition (roughly 3700) and the density of the scores, I will not take the ranking as a benchmark but the proximity to the best solutions.
 As described before, the metric used to measure the result is the RMSE or RMSD on the logs of the price and the estimation; taking the logs allowing to not get a huge penalty on the most expensive houses prediction error.
@@ -254,7 +293,12 @@ Computation of the mean and median predictions
 Finally, I compute the mean and median values of the predictions and use the one with the best score for the final best submission.
 
 ### **Refinement**
-The refinement really took place all along the building of the model and was depicted before.
+In the table below are shown the first layer results obtained after refinement of the hyper parameters of the system.
+All the initial results have been obtained with default model's parameters, the 'int' input flavor and no transformation on the output.
+![Layer1 refinement](http://localhost/layer1_table.png)
+
+In the table below are shown the second layer refinement results. As above, the initial results are obtained with the default parameters and no tranformation.
+![Layer2 refinement](http://localhost/layer2_table.png)
 
 ## **IV. Results**
 ### **Model Evaluation and Validation**
@@ -366,6 +410,17 @@ The training score of the best model of the first layer is 0.1164 for the Gradie
 This is a major improvement that I never approached when playing with my single models!
 
 ## **V. Conclusion**
+### **Visualisation**
+Below is a plot showing the error between the predictions and the training data for the best model (first Gradient Boosting) of the layer 1 and the mean of the layer2.
+
+![errors plot](http://localhost/errors_scatter_plots.png)
+
+We can note that the red points are a bit denser but the houses that were badly predicted still are badly predicted; I assume that this means two things:
+1 - the system still didn't fully capture the information driving the price of a house
+2 - the dataset still has some outliers (a house selling price might vary upon factors that were not in the datasets or even with no real reasons)
+
+Two people reach leaderboard scores around 0.3 and two others around 0.7; if their submission are genuine, it means that they captured significantly more information from this dataset than myself.
+
 ### **Reflection**
 This project has been a very good first step into the real world of machine learning, I really broke my teeth on the data preprocessing even though I clearly found out that other Kagglers didn't show much effort in the other competitions I checked... The data preprocessing was a huge part that I addressed particularly thoroughly!
 

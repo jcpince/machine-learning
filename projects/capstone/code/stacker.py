@@ -253,36 +253,36 @@ layer1 = [
 ]
 
 layer2 = [
-    #{
-        #'name': 'XGB_layer2_0',
-        #'model':xgb.XGBRegressor,
-        #'train_output_transformation': 'log',
-        #'n_folds': N_FOLDS,
-        #'parameters': {
-            #'max_depth': 4,
-            #'objective': 'reg:linear',
-            #'learning_rate': 0.005,
-            #'min_child_weight': 6,
-            #'subsample': 0.7,
-            #'n_estimators': 1500,
-            #'seed': RANDOM_STATE
-        #}
-    #},
-    #{
-        #'name': 'XGB_layer2_1',
-        #'model':xgb.XGBRegressor,
-        #'train_output_transformation': 'log',
-        #'n_folds': N_FOLDS,
-        #'parameters': {
-            #'max_depth': 2,
-            #'objective': 'reg:linear',
-            #'learning_rate': 0.005,
-            #'min_child_weight': 4,
-            #'subsample': 0.7,
-            #'n_estimators': 2000,
-            #'seed': RANDOM_STATE
-        #}
-    #},
+    {
+        'name': 'XGB_layer2_0',
+        'model':xgb.XGBRegressor,
+        'train_output_transformation': 'log',
+        'n_folds': N_FOLDS,
+        'parameters': {
+            'max_depth': 4,
+            'objective': 'reg:linear',
+            'learning_rate': 0.005,
+            'min_child_weight': 6,
+            'subsample': 0.7,
+            'n_estimators': 1500,
+            'seed': RANDOM_STATE
+        }
+    },
+    {
+        'name': 'XGB_layer2_1',
+        'model':xgb.XGBRegressor,
+        'train_output_transformation': 'log',
+        'n_folds': N_FOLDS,
+        'parameters': {
+            'max_depth': 2,
+            'objective': 'reg:linear',
+            'learning_rate': 0.005,
+            'min_child_weight': 4,
+            'subsample': 0.7,
+            'n_estimators': 2000,
+            'seed': RANDOM_STATE
+        }
+    },
     {
         'name': 'GB_layer2_0',
         'model':GradientBoostingRegressor,
